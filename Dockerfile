@@ -6,8 +6,8 @@ RUN apt-get update && apt-get install -y nodejs
 RUN mkdir /usr/app
 WORKDIR /usr/app
 
-RUN addgroup smashing \
-    && adduser -S -G smashing smashing \
+RUN groupadd smashing \
+    && useradd -l -m -s /bin/false -g smashing smashing \
     && chown -R smashing:smashing /usr/app
 
 USER smashing
@@ -15,8 +15,9 @@ USER smashing
 COPY Gemfile /usr/app/
 RUN bundle install
 
-RUN smashing new sweet_dashboard_project
-RUN cd sweet_dashboard_project && bundle install
+RUN smashing new dashboard
+RUN cd dashboard && bundle install
+WORKDIR /usr/app/dashboard
 
 EXPOSE 8080
 
