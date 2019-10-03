@@ -1,5 +1,7 @@
 # Smashing Dashboard
 
+A custom [smashing](https://github.com/Smashing/smashing) dashboard
+
 ## Build
 
     docker build -t smashing .
