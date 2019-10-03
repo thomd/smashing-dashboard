@@ -32,5 +32,5 @@ Create a new widget **alert**:
 Push an alert:
 
     curl -d '{ "auth_token": "123", "value": 999 }' http://localhost/widgets/response_time
-    
 
+<img src="https://raw.githubusercontent.com/thomd/smashing-dashbboard/images/screenshot.png">
