@@ -1,7 +1,7 @@
 require 'dashing'
 
 configure do
-  set :auth_token, 'FOO'
+  set :auth_token, '123'
   set :template_languages, %i[html erb]
 
   helpers do
