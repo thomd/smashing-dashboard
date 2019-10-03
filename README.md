@@ -6,7 +6,7 @@
 
 ## Start Dashboard
 
-    docker run -d --rm --name smashing -p 80:8080 -v $(pwd)/dashboard:/usr/app/dashboard smashing
+    docker run -d --rm --name smashing -p 80:8080 -v $(pwd)/dashboard:/usr/app/dashboard smashing -p 8080 -e production
     open http://localhost/sample
     open http://localhost/sampletv
 
