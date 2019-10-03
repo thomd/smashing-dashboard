@@ -22,3 +22,15 @@ Open dashboard in browser and push a message:
     open http://localhost/ops
     curl -d '{ "auth_token": "123", "text": "Hey!" }' http://localhost/widgets/my_widget
 
+## Create New Widget
+
+Create a new widget **alert**:
+
+    cd dashboard
+    docker run -v $(pwd):/usr/app/dashboard smashing generate widget alert
+
+Push an alert:
+
+    curl -d '{ "auth_token": "123", "value": 999 }' http://localhost/widgets/response_time
+    
+
