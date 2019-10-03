@@ -6,11 +6,20 @@ A custom [smashing](https://github.com/Smashing/smashing) dashboard
 
     docker build -t smashing .
 
-## Start Dashboard
+## Run Dashboard on localhost
 
     docker run -d --rm --name smashing -p 80:8080 -v $(pwd)/dashboard:/usr/app/dashboard smashing -p 8080 -e production
     open http://localhost/sample
     open http://localhost/sampletv
+
+## Run Dashboard on Heroku
+
+The dashboard application is in a subdirectory, hence we need to push a subtree:
+
+    heroku login
+    heroku apps:create my-own-dashboard
+    heroku git:remote -a my-own-dashboard
+    git subtree push --prefix dashoard heroku master
 
 ## Create New Dashboard
 
