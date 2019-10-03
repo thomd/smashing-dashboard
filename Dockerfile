@@ -15,12 +15,16 @@ USER smashing
 COPY Gemfile .
 RUN bundle install
 
-RUN smashing new dashboard
-RUN cd dashboard && bundle install
-WORKDIR /usr/app/dashboard
+#RUN smashing new dashboard
+#RUN cd dashboard && bundle install
+#WORKDIR /usr/app/dashboard
 
 # add basic authentication
-COPY config.ru .
+#COPY --chown=smashing:smashing config.ru .
+
+COPY --chown=smashing:smashing dashboard dashboard
+RUN cd dashboard && bundle install
+WORKDIR /usr/app/dashboard
 
 EXPOSE 8080
 
