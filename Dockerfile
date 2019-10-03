@@ -12,12 +12,15 @@ RUN groupadd smashing \
 
 USER smashing
 
-COPY Gemfile /usr/app/
+COPY Gemfile .
 RUN bundle install
 
 RUN smashing new dashboard
 RUN cd dashboard && bundle install
 WORKDIR /usr/app/dashboard
+
+# add basic authentication
+COPY config.ru .
 
 EXPOSE 8080
 
